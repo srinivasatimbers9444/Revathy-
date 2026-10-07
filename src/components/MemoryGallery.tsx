@@ -4,6 +4,33 @@ import { Camera, MapPin, Calendar, X, Plus, Sparkles, Heart } from 'lucide-react
 
 const INITIAL_MEMORIES: MemoryPhoto[] = [
   {
+    id: 'p_intimate',
+    title: 'The Infinity Vow & Sacred Glance',
+    date: 'Our Sacred Day',
+    location: 'Looking Into Eternity',
+    imageUrl: '/src/assets/images/wedding_intimate_love_1791390834068.jpg',
+    caption: 'Your gentle hand on my cheek, the infinity ring, and forever in your eyes.',
+    backNote: 'Every time you touch my cheek like this, all the rush and chaos of the world ceases to exist. That infinity symbol on your ring was not just an ornament; it was the quiet vow our hearts made before we even spoke our first words.',
+  },
+  {
+    id: 'p_chariot',
+    title: 'Our Royal Procession & Electric Joy',
+    date: 'The Night of Celebration',
+    location: 'Under the Festive Canopy',
+    imageUrl: '/src/assets/images/wedding_chariot_night_1791390848914.jpg',
+    caption: 'Waving to the world with sunglasses, laughter, and unbound happiness.',
+    backNote: 'Sitting in our royal golden chariot, wearing our shades and laughing at everyone cheering! In your royal purple outfit and garland, you were radiant beyond measure. You are the only queen in my kingdom.',
+  },
+  {
+    id: 'p_ceremony',
+    title: 'Surrounded by Love & Sacred Blessings',
+    date: 'Our Wedding Ceremony',
+    location: 'The Grand Mandap Stage',
+    imageUrl: '/src/assets/images/wedding_ceremony_stage_1791390859944.jpg',
+    caption: 'Exchanging rings and garlands before everyone we love.',
+    backNote: 'Sitting on the golden throne beside you, exchanging garlands, surrounded by our families and friends smiling with pride. That was the greatest moment of my life: knowing you are officially my wife.',
+  },
+  {
     id: 'p1',
     title: 'Candlelit Evenings & Golden Hours',
     date: 'Our Anniversary Evening',
@@ -30,21 +57,19 @@ const INITIAL_MEMORIES: MemoryPhoto[] = [
     caption: 'Two souls walking one shared path under twilight skies.',
     backNote: 'Walking beside you is my favorite pace in life. No hurry, no worries, just the comforting rhythm of our footsteps side by side.',
   },
-  {
-    id: 'p4',
-    title: 'Words Carved in Parchment',
-    date: 'The Morning Note',
-    location: 'Left on Your Pillow',
-    imageUrl: '/src/assets/images/vintage_love_letter_quill_1791388859799.jpg',
-    caption: 'A handwritten vow with red wax seal that time can never fade.',
-    backNote: 'I still write love letters to you in my mind whenever you are sleeping peacefully. You are the poetry I never knew I was meant to write.',
-  },
 ];
 
 export const MemoryGallery: React.FC = () => {
   const [memories, setMemories] = useState<MemoryPhoto[]>(() => {
     const saved = localStorage.getItem('revathy_suriya_memories');
-    return saved ? JSON.parse(saved) : INITIAL_MEMORIES;
+    if (!saved) return INITIAL_MEMORIES;
+    try {
+      const parsed: MemoryPhoto[] = JSON.parse(saved);
+      const missing = INITIAL_MEMORIES.filter((init) => !parsed.some((p) => p.id === init.id));
+      return [...missing, ...parsed];
+    } catch {
+      return INITIAL_MEMORIES;
+    }
   });
 
   const [activePhoto, setActivePhoto] = useState<MemoryPhoto | null>(null);

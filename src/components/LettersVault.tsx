@@ -5,6 +5,29 @@ import confetti from 'canvas-confetti';
 
 const INITIAL_LETTERS: LoveLetter[] = [
   {
+    id: 'l_bday',
+    title: 'Happy Birthday to My Queen Revathy',
+    preview: 'Today the earth marks another year of your gentle grace, but my heart marks another year of pure gratitude...',
+    content: `My Dearest, Beautiful Revathy,
+
+Happy Birthday to the woman who turned my entire existence into a masterpiece.
+
+When I think about the day you were born, I am filled with awe. Years before I ever heard your laughter or held your hand, the universe was already preparing the most generous blessing of my life. 
+
+Thank you for being born, my love. Thank you for choosing to share your laughter, your dreams, and your precious heart with me. Every year with you makes you more breathtaking, more wise, and more deeply cherished in my eyes.
+
+May this new year of your life bring you boundless joy, peace in your mind, and the realization of every dream you have ever dared to whisper. I will spend every single day of this coming year ensuring you feel loved, adored, and treated like the queen you are.
+
+Happy Birthday, my forever wife.
+
+All my heart and soul,
+Suriya`,
+    date: 'A Birthday Love Letter',
+    waxColor: '#be185d',
+    sender: 'Suriya',
+    recipient: 'Revathy',
+  },
+  {
     id: 'l1',
     title: 'Why You Are My Sanctuary',
     preview: 'In a world full of noise and relentless haste, your embrace is the only place where time stands still...',
@@ -92,7 +115,14 @@ Suriya`,
 export const LettersVault: React.FC = () => {
   const [letters, setLetters] = useState<LoveLetter[]>(() => {
     const saved = localStorage.getItem('revathy_suriya_letters');
-    return saved ? JSON.parse(saved) : INITIAL_LETTERS;
+    if (!saved) return INITIAL_LETTERS;
+    try {
+      const parsed: LoveLetter[] = JSON.parse(saved);
+      const missing = INITIAL_LETTERS.filter((init) => !parsed.some((p) => p.id === init.id));
+      return [...missing, ...parsed];
+    } catch {
+      return INITIAL_LETTERS;
+    }
   });
 
   const [activeLetter, setActiveLetter] = useState<LoveLetter | null>(null);

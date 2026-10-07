@@ -5,6 +5,7 @@ export interface Milestone {
   category: string;
   description: string;
   poeticSnippet: string;
+  imageUrl?: string;
   iconName?: string;
 }
 

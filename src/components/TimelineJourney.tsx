@@ -12,6 +12,7 @@ const INITIAL_MILESTONES: Milestone[] = [
     description:
       'I still remember the very first time I looked into your eyes. There was a gentle grace about you that made everything else fade into background noise. I realized in that single breath that my life was never going to be the ordinary thing it once was.',
     poeticSnippet: '“In a room full of people, my eyes will always search only for you.”',
+    imageUrl: '/src/assets/images/wedding_intimate_love_1791390834068.jpg',
   },
   {
     id: 'm2',
@@ -21,6 +22,7 @@ const INITIAL_MILESTONES: Milestone[] = [
     description:
       'Those long, late-night conversations where we talked about our childhoods, our secret fears, our wild dreams, and everything in between. You made me laugh until my chest ached. In your honesty, I found the safest home I have ever known.',
     poeticSnippet: '“You turned the simplest hours into memories etched in gold.”',
+    imageUrl: '/src/assets/images/candlelit_roses_elegance_1791388846186.jpg',
   },
   {
     id: 'm3',
@@ -30,15 +32,17 @@ const INITIAL_MILESTONES: Milestone[] = [
     description:
       'Standing before family, friends, and the heavens, promising to love, cherish, and stand by you in every breath. Seeing you as my bride was the most breathtaking sight of my entire existence. My heart has been completely yours ever since.',
     poeticSnippet: '“I chose you then, I choose you today, and I will choose you in every lifetime.”',
+    imageUrl: '/src/assets/images/wedding_ceremony_stage_1791390859944.jpg',
   },
   {
     id: 'm4',
     yearOrDate: 'Chapter Four',
-    category: 'Our Sanctuary',
-    title: 'The Unspoken Magic of Everyday Life',
+    category: 'Our Royal Procession',
+    title: 'Celebrations, Laughter & Our Golden Chariot',
     description:
-      'It is not only the grand celebrations that define our love, Revathy—it is the morning cups of tea, your sleepy smile when you wake up, how you hum softly to yourself, and the reassuring warmth of your hand inside my jacket pocket on chilly evenings.',
-    poeticSnippet: '“Ordinary days become extraordinary simply because you are in them.”',
+      'Riding under glowing festive canopies, wearing sunglasses and smiling from ear to ear! Every relative cheering, music resounding, but the only melody that mattered was hearing you giggle beside me. That night, the world belonged to you and me.',
+    poeticSnippet: '“With you, Revathy, every celebration is a triumph of pure joy.”',
+    imageUrl: '/src/assets/images/wedding_chariot_night_1791390848914.jpg',
   },
   {
     id: 'm5',
@@ -48,6 +52,7 @@ const INITIAL_MILESTONES: Milestone[] = [
     description:
       'Life brings challenges, but whenever the winds blew hard, your unwavering courage and calm wisdom kept our ship steady. Having you as my partner taught me what true partnership, unconditional trust, and unshakeable resilience mean.',
     poeticSnippet: '“With your hand in mine, there is no road too steep and no dark too deep.”',
+    imageUrl: '/src/assets/images/hero_romantic_twilight_1791388831770.jpg',
   },
   {
     id: 'm6',
@@ -57,16 +62,36 @@ const INITIAL_MILESTONES: Milestone[] = [
     description:
       'My greatest prayer is to watch silver threads weave into our hair, to sit on a quiet veranda watching the evening sunsets, still making you laugh, still holding your hand, still as madly in love with you as the first day.',
     poeticSnippet: '“The best is yet to come, my sweet Revathy.”',
+    imageUrl: '/src/assets/images/starlit_night_reflection_1791388871686.jpg',
   },
 ];
 
 export const TimelineJourney: React.FC = () => {
   const [milestones, setMilestones] = useState<Milestone[]>(() => {
     const saved = localStorage.getItem('revathy_suriya_milestones');
-    return saved ? JSON.parse(saved) : INITIAL_MILESTONES;
+    if (!saved) return INITIAL_MILESTONES;
+    try {
+      const parsed: Milestone[] = JSON.parse(saved);
+      return parsed.map((p) => {
+        const init = INITIAL_MILESTONES.find((m) => m.id === p.id);
+        return init && !p.imageUrl ? { ...p, imageUrl: init.imageUrl } : p;
+      });
+    } catch {
+      return INITIAL_MILESTONES;
+    }
   });
 
-  const [activeMilestone, setActiveMilestone] = useState<Milestone | null>(milestones[0]);
+  const [activeMilestone, setActiveMilestone] = useState<Milestone | null>(() => {
+    const saved = localStorage.getItem('revathy_suriya_milestones');
+    if (!saved) return INITIAL_MILESTONES[0];
+    try {
+      const parsed: Milestone[] = JSON.parse(saved);
+      const init = INITIAL_MILESTONES.find((m) => m.id === parsed[0]?.id);
+      return init && !parsed[0]?.imageUrl ? { ...parsed[0], imageUrl: init.imageUrl } : parsed[0] || INITIAL_MILESTONES[0];
+    } catch {
+      return INITIAL_MILESTONES[0];
+    }
+  });
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newDate, setNewDate] = useState('');
@@ -192,6 +217,17 @@ export const TimelineJourney: React.FC = () => {
                   <h3 className="font-serif text-2xl sm:text-3xl text-[#fdf6ec] font-normal leading-snug mb-6">
                     {activeMilestone.title}
                   </h3>
+
+                  {activeMilestone.imageUrl && (
+                    <div className="mb-6 rounded-xl overflow-hidden border border-[#e0a96d]/20 max-h-64 sm:max-h-72 bg-[#120f1b] shadow-lg">
+                      <img
+                        src={activeMilestone.imageUrl}
+                        alt={activeMilestone.title}
+                        className="w-full h-full object-cover object-center filter saturate-[1.05]"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  )}
 
                   <div className="p-4 rounded-xl bg-[#0b0c10]/60 border-l-2 border-[#e0a96d] mb-6">
                     <p className="font-serif italic text-base sm:text-lg text-[#f5d0a9] leading-relaxed">

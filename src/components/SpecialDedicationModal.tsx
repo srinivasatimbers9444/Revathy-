@@ -35,24 +35,32 @@ export const SpecialDedicationModal: React.FC<SpecialDedicationModalProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        <div className="w-14 h-14 mx-auto rounded-full bg-[#fbe7c6] border border-[#e0a96d]/40 flex items-center justify-center shadow-md">
-          <Heart className="w-7 h-7 text-[#991b1b] fill-[#991b1b]" />
+        <div className="relative w-20 h-20 mx-auto rounded-full p-1 bg-gradient-to-tr from-[#e0a96d] to-[#f472b6] shadow-lg">
+          <img
+            src="/src/assets/images/wedding_intimate_love_1791390834068.jpg"
+            alt="Revathy and Suriya"
+            className="w-full h-full object-cover rounded-full"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#991b1b] border-2 border-white flex items-center justify-center">
+            <Heart className="w-3.5 h-3.5 text-white fill-white" />
+          </div>
         </div>
 
         <div className="space-y-1">
           <div className="font-script text-3xl sm:text-4xl text-[#991b1b]">
-            My Dearest Revathy
+            Happy Birthday, My Dearest Revathy
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl text-[#181105] font-normal tracking-tight">
-            A Message From Suriya’s Heart
+            A Birthday Message From Suriya’s Heart
           </h2>
         </div>
 
         <div className="p-5 rounded-2xl bg-[#f7efe1] border border-[#e5d8c5] text-left">
           <p className="font-serif text-base leading-relaxed text-[#3a3024] whitespace-pre-line">
-            “I built this website for you because you deserve more than ordinary words. You deserve a constellation of reasons, a vault of letters, and a melody that plays only for you.
+            “Happy Birthday to the most magnificent woman I know. I created this digital sanctuary to celebrate you on your special day—to remind you that you are deeply loved, revered, and cherished in every single breath I take.
             <br /><br />
-            Whenever you need a reminder of how extraordinary you are, or how deeply I adore you—come here. You are my greatest blessing.”
+            Blow out your candles, read your letters, explore our journey, and remember: with every passing birthday, my love for you only grows deeper.”
           </p>
         </div>
 

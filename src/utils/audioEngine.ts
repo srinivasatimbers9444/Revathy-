@@ -16,6 +16,19 @@ class RomanticAudioEngine {
   public tracks = [
     {
       id: 0,
+      title: "Happy Birthday Revathy Serenade",
+      mood: "Celebratory Music Box & Warm Piano",
+      tempo: 130,
+      frequencies: [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25],
+      progression: [
+        [0, 2, 4, 7], // C major
+        [3, 5, 7, 0], // F major
+        [4, 6, 1, 3], // G major
+        [0, 4, 7, 2]  // C major octave
+      ]
+    },
+    {
+      id: 1,
       title: "Revathy's Starlight Nocturne",
       mood: "Gentle Piano & Celestial Chimes",
       tempo: 120, // ms per beat ~ 500ms
@@ -29,7 +42,7 @@ class RomanticAudioEngine {
       ]
     },
     {
-      id: 1,
+      id: 2,
       title: "Forever in Golden Twilight",
       mood: "Warm Romantic Waltz",
       tempo: 150,
@@ -42,7 +55,7 @@ class RomanticAudioEngine {
       ]
     },
     {
-      id: 2,
+      id: 3,
       title: "Echoes of Eternity & Devotion",
       mood: "Ethereal Ambient Harp",
       tempo: 180,

@@ -16,11 +16,13 @@ import { StargazerVow } from './components/StargazerVow';
 import { MusicPlayerBar } from './components/MusicPlayerBar';
 import { Footer } from './components/Footer';
 import { SpecialDedicationModal } from './components/SpecialDedicationModal';
+import { BirthdayCakeModal } from './components/BirthdayCakeModal';
 import { romanticAudio } from './utils/audioEngine';
 
 export default function App() {
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
   const [isDedicationOpen, setIsDedicationOpen] = useState(false);
+  const [isBirthdayCakeOpen, setIsBirthdayCakeOpen] = useState(false);
 
   const handleToggleMusic = () => {
     const newState = romanticAudio.togglePlay();
@@ -33,6 +35,14 @@ export default function App() {
       setIsPlayingMusic(true);
     }
     setIsDedicationOpen(false);
+  };
+
+  const handleStartBirthdaySong = () => {
+    romanticAudio.setTrack(0); // Happy Birthday Revathy Serenade
+    if (!isPlayingMusic) {
+      romanticAudio.start();
+      setIsPlayingMusic(true);
+    }
   };
 
   const handleOpenLetters = () => {
@@ -52,6 +62,7 @@ export default function App() {
         onToggleMusic={handleToggleMusic}
         isPlayingMusic={isPlayingMusic}
         onOpenQuickLoveNote={() => setIsDedicationOpen(true)}
+        onOpenBirthdayCake={() => setIsBirthdayCakeOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -60,6 +71,7 @@ export default function App() {
         <Hero
           onOpenLetters={handleOpenLetters}
           onStartMelody={handleStartMusic}
+          onOpenBirthdayCake={() => setIsBirthdayCakeOpen(true)}
         />
 
         {/* Chapter 1: The Constellations of Us */}
@@ -92,6 +104,13 @@ export default function App() {
         isOpen={isDedicationOpen}
         onClose={() => setIsDedicationOpen(false)}
         onStartMusicAndExplore={handleStartMusic}
+      />
+
+      {/* Interactive Birthday Cake & Candles Modal */}
+      <BirthdayCakeModal
+        isOpen={isBirthdayCakeOpen}
+        onClose={() => setIsBirthdayCakeOpen(false)}
+        onStartBirthdaySerenade={handleStartBirthdaySong}
       />
 
       {/* Footer */}

@@ -111,14 +111,14 @@ export const CoupleQuiz: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <div className="flex items-center justify-center gap-2 text-xs tracking-widest uppercase text-[#e0a96d]">
-            <Award className="w-3.5 h-3.5 text-[#e0a96d]" />
-            <span>Playful Love Test</span>
+            <span>🎂</span>
+            <span>Birthday Edition Love Quiz</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl text-[#fdf6ec] font-normal tracking-tight">
-            How Well Do We Know Our Love?
+            The Birthday Queen's Quiz
           </h2>
           <p className="text-sm sm:text-base text-[#a89f91] font-light">
-            A sweet mini-quiz crafted for Revathy. Discover the heartfelt truths behind every question!
+            A playful birthday quiz crafted especially for Revathy. Answer all questions to unlock your official Birthday Honors!
           </p>
         </div>
 
@@ -207,24 +207,24 @@ export const CoupleQuiz: React.FC = () => {
 
               <div className="space-y-2">
                 <div className="font-script text-3xl sm:text-4xl text-[#e0a96d]">
-                  Official Declaration of Devotion
+                  Official Birthday Honors & Declaration
                 </div>
                 <h3 className="font-serif text-3xl sm:text-4xl text-[#fdf6ec]">
-                  Certificate of Eternal Love
+                  Certificate of Eternal Adoration
                 </h3>
                 <p className="text-xs uppercase tracking-widest text-[#a89f91]">
-                  Conferred upon Revathy & Suriya
+                  Bestowed on Revathy's Birthday by Suriya
                 </p>
               </div>
 
               <div className="p-6 rounded-2xl bg-[#0b0c10]/70 border border-[#e0a96d]/20 text-center max-w-lg mx-auto">
                 <p className="font-serif italic text-base sm:text-lg text-[#f5d0a9] leading-relaxed">
-                  “This certifies that Revathy holds the undisputed, complete, and everlasting title
-                  to Suriya’s heart, validated with a perfect score of 100% unconditional adoration.”
+                  “This certifies that Revathy is the undisputed Queen of Suriya’s heart on her birthday
+                  and throughout every year to follow. Validated with 100% unconditional love and eternal gratitude for the day you were born.”
                 </p>
                 <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#a89f91]">
-                  <span>Witnessed by the Stars</span>
-                  <span className="font-script text-2xl text-[#e0a96d]">Forever Suriya</span>
+                  <span>Witnessed by Heaven & Earth</span>
+                  <span className="font-script text-2xl text-[#e0a96d]">Happy Birthday Revathy!</span>
                 </div>
               </div>
 

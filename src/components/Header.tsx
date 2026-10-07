@@ -6,22 +6,24 @@ interface HeaderProps {
   onToggleMusic: () => void;
   isPlayingMusic: boolean;
   onOpenQuickLoveNote: () => void;
+  onOpenBirthdayCake: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onToggleMusic,
   isPlayingMusic,
   onOpenQuickLoveNote,
+  onOpenBirthdayCake,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { label: 'Our Story', href: '#story' },
-    { label: 'Love Letters', href: '#letters' },
+    { label: 'Birthday Letters', href: '#letters' },
     { label: '365 Reasons', href: '#reasons' },
     { label: 'Memories', href: '#memories' },
-    { label: 'Couple Quiz', href: '#quiz' },
-    { label: 'Eternal Vow', href: '#vows' },
+    { label: 'Birthday Quiz', href: '#quiz' },
+    { label: 'Birthday Vows', href: '#vows' },
   ];
 
   return (
@@ -32,11 +34,11 @@ export const Header: React.FC<HeaderProps> = ({
           href="#top"
           className="font-serif text-2xl md:text-3xl tracking-wide text-[#fdf6ec] hover:text-[#e0a96d] transition-colors whitespace-nowrap group"
         >
-          Revathy <span className="font-script text-3xl md:text-4xl text-[#e0a96d] mx-1">&</span> Suriya
+          Happy Birthday Revathy <span className="font-script text-2xl md:text-3xl text-[#e0a96d] mx-1">&</span> Suriya
         </a>
 
         {/* Zone 2: 4-6 clean text navigation links */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#d1c7bd]">
+        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-[#d1c7bd]">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -50,6 +52,16 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Zone 3: 1-2 primary actions */}
         <div className="flex items-center gap-3">
+          {/* Birthday Cake Button */}
+          <button
+            onClick={onOpenBirthdayCake}
+            className="px-3.5 py-2 text-xs font-semibold text-[#181105] bg-gradient-to-r from-[#e0a96d] to-[#f5d0a9] rounded-full hover:brightness-110 shadow-sm transition-all whitespace-nowrap flex items-center gap-1.5 animate-pulse"
+            title="Make a wish & blow candles"
+          >
+            <span>🎂</span>
+            <span className="hidden sm:inline">Blow Candles</span>
+          </button>
+
           {/* Ambient Music Button */}
           <button
             onClick={onToggleMusic}
@@ -67,15 +79,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="hidden sm:inline">Play Melody</span>
               </>
             )}
-          </button>
-
-          {/* Special Dedication CTA */}
-          <button
-            onClick={onOpenQuickLoveNote}
-            className="px-4 py-2 text-xs font-semibold text-[#181105] bg-gradient-to-r from-[#e0a96d] to-[#f5d0a9] rounded-full hover:brightness-110 shadow-sm transition-all whitespace-nowrap flex items-center gap-1.5"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#181105]" />
-            <span>To Revathy</span>
           </button>
 
           {/* Mobile hamburger toggle */}
