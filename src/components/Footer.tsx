@@ -12,18 +12,18 @@ export const Footer: React.FC = () => {
         {/* Left: Brand mark & dedication */}
         <div className="text-center md:text-left space-y-1">
           <div className="font-serif text-lg text-[#fdf6ec]">
-            Revathy <span className="font-script text-xl text-[#e0a96d]">&</span> Suriya
+            Suriya <span className="font-script text-xl text-[#e0a96d]">&</span> Revathy Birthday Celebration
           </div>
           <div className="text-xs text-[#736b60]">
-            A private digital sanctuary crafted with endless devotion.
+            The official Suriya Revathy birthday tribute crafted with endless devotion for Revathy by Suriya.
           </div>
         </div>
 
         {/* Center: Heart dedication */}
         <div className="flex items-center gap-1.5 text-[#cdc1b4]">
-          <span>Made for my beloved wife</span>
+          <span>Happy Birthday, Revathy</span>
           <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-          <span>Forever & Always</span>
+          <span>Suriya & Revathy Forever</span>
         </div>
 
         {/* Right: Back to top action */}

@@ -179,7 +179,7 @@ export const MemoryGallery: React.FC = () => {
                       <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#241e2d] mb-3 relative">
                         <img
                           src={photo.imageUrl}
-                          alt={photo.title}
+                          alt={`Suriya Revathy birthday memory - ${photo.title}`}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           referrerPolicy="no-referrer"
                         />
@@ -254,7 +254,7 @@ export const MemoryGallery: React.FC = () => {
             <div className="max-h-[60vh] overflow-hidden bg-black flex items-center justify-center">
               <img
                 src={activePhoto.imageUrl}
-                alt={activePhoto.title}
+                alt={`Suriya Revathy birthday - ${activePhoto.title}`}
                 className="max-h-[60vh] w-auto object-contain"
                 referrerPolicy="no-referrer"
               />

@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLetters, onStartMelody, onOpen
           <div className="lg:col-span-7 space-y-6 text-left">
             <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-[#e0a96d]">
               <Sparkles className="w-3.5 h-3.5 text-[#e0a96d]" />
-              <span>Celebrating the Most Beautiful Soul on Her Birthday</span>
+              <span>Suriya & Revathy Birthday Celebration</span>
             </div>
 
             <h1 className="font-serif text-4xl sm:text-6xl xl:text-7xl font-normal tracking-tight text-[#fdf6ec] leading-[1.08] text-balance">
@@ -50,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLetters, onStartMelody, onOpen
             </h1>
 
             <p className="text-base sm:text-lg text-[#cdc1b4] leading-relaxed max-w-xl font-light">
-              Today is my favorite day of the entire year—the day heaven blessed this earth with your radiant spirit.
+              Welcome to the official Suriya Revathy birthday celebration sanctuary. Today is my favorite day of the entire year—the day heaven blessed this earth with your radiant spirit.
               Every laugh of yours lights up my world, every glance fills me with peace, and every moment by your side is a gift.
               This sanctuary is my gift to you: an eternal celebration of the woman who owns my heart.
             </p>
@@ -117,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLetters, onStartMelody, onOpen
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-[#1a1626]">
                   <img
                     src="/src/assets/images/wedding_intimate_love_1791390834068.jpg"
-                    alt="Suriya and Revathy in intimate loving embrace on their wedding day"
+                    alt="Suriya Revathy birthday - romantic intimate wedding portrait of Suriya and Revathy"
                     className="w-full h-full object-cover object-center filter saturate-[1.05] contrast-[1.05] hover:scale-105 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
